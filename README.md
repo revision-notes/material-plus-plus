@@ -5,9 +5,10 @@ Material++ is my extension to mkdocs-material, for the use of School Revision No
 
 ## Changes
 
-- Change the default font to `Noto Sans`, from `Roboto Sans`
-- Split the `font.code` setting into two settings: `font.pre` and `font.code`
-- Do not handle fonts with Google Fonts for `font.code`
+- Fonts
+  - Change the default font to `Noto Sans`, from `Roboto Sans`
+  - Split the `font.code` setting into two settings: `font.pre` and `font.code`
+  - Do not handle with Google Fonts for `font.code`
 
 ## Notes
 
