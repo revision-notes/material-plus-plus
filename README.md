@@ -1,7 +1,7 @@
 Material++
 ==========
 
-Material++ is my extension to mkdocs-material, for the use of School Revision Notes.
+Material++ is my extension to mkdocs-material, for the use of Revision Notes.
 
 ## Changes
 
