@@ -16,7 +16,7 @@
         {% set pre = config.extra.get("font", {}).pre | default("Noto Mono") %}
         {% set code = config.extra.get("font", {}).code | default("Noto Mono") %}
         {% set font = text + ':300,400,400i,700|' + pre | replace(' ', '+') %}
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family={{ font }}" />
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family={{ font }}">
         <style>
             body, input {
                 font-family: "{{ text }}", "Helvetica Neue",
@@ -34,5 +34,9 @@
     {% endif %}
 
     <!-- Material icons as a default iconset -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+{% endblock %}
+
+{% block extrahead %}
+    <meta name="robots" content="noindex">
 {% endblock %}
