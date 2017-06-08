@@ -6,6 +6,7 @@ Material++ is my extension to mkdocs-material, for the use of Revision Notes.
 ## Changes
 
 - Prevent *good* search engines from indexing the site
+- Add reference to humans.txt
 - Use `|` to separate titles, not `-` 
 - 404 Page
   - Improved the content, to include a contact email
