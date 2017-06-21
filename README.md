@@ -7,15 +7,20 @@ Material++ is my extension to mkdocs-material, for the use of Revision Notes.
 
 - Prevent *good* search engines from indexing the site
 - Add reference to humans.txt
-- Use `|` to separate titles, not `-` 
+- Use `|` to separate titles, not `-`
+- Include MathJax
 - 404 Page
   - Improved the content, to include a contact email
   - Give the page a proper title
 - Fonts
-  - Change the default font to `Noto Sans`, from `Roboto Sans`
-  - Split the `font.code` setting into two settings: `font.pre` and `font.code`
-  - Do not handle with Google Fonts for `font.code`
+  - Set text font to Noto Sans
+  - Set pre font to Noto Mono
+  - Set code font to Hack
+- Security
+  - Follow [Subresource Integrity security guidelines]
 
 ## Notes
 
 - **`font.code` will only work with CodeHilite**
+
+[Subresource Integrity security guidelines]: https://wiki.mozilla.org/Security/Guidelines/Web_Security#Subresource_Integrity

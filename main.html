@@ -11,33 +11,74 @@
 {% endblock %}
 
 {% block fonts %}
-    {% if config.extra.font != false and config.extra.font != "none" %}
-        {% set text = config.extra.get("font", {}).text | default("Noto Sans") %}
-        {% set pre = config.extra.get("font", {}).pre | default("Noto Mono") %}
-        {% set code = config.extra.get("font", {}).code | default("Noto Mono") %}
-        {% set font = text + ':300,400,400i,700|' + pre | replace(' ', '+') %}
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family={{ font }}">
-        <style>
-            body, input {
-                font-family: "{{ text }}", "Helvetica Neue",
-                Helvetica, Arial, sans-serif;
-            }
-            pre, code, kbd {
-                font-family: "{{ pre }}", "Courier New",
-                Courier, monospace;
-            }
-            .codehilite * {
-                font-family: "{{ code }}", "Courier New",
-                Courier, monospace;
-            }
-        </style>
-    {% endif %}
+    <!-- General Fonts - Noto based -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Noto+Sans"
+          integrity="sha384-cnfcBG0kjmduxHJ8EfpPIr/HEHf2UvqGCGAVhZPhSBcUUj3CJn0VKjrtksWqYZSS"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Noto+Mono"
+          integrity="sha384-cnfcBG0kjmduxHJ8EfpPIr/HEHf2UvqGCGAVhZPhSBcUUj3CJn0VKjrtksWqYZSS"
+          crossorigin="anonymous">
+
+    <!-- Hack font for source code examples -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css"
+          integrity="sha384-H5e0RJpnyDO9imPVrfUJSBYtDF+3/DTHekmucchq8nG7NV7KcGFj0dGlkxgkKX78"
+          crossorigin="anonymous">
 
     <!-- Material icons as a default iconset -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          integrity="sha384-CRhgCa0uM5waDFIClxUG/YDMZSUj1VYriGWfzAN5uZGIAKMdDFLt3wWT4PAYFJ3J"
+          crossorigin="anonymous">
+
+    <!-- Configure page fonts -->
+    <style>
+        body, input {
+            font-family: 'Noto Sans', sans-serif;
+        }
+        pre, code, kbd {
+            font-family: 'Noto Mono', sans-serif;
+        }
+        .codehilite * {
+            font-family: 'Hack', monospace;
+        }
+    </style>
 {% endblock %}
 
 {% block extrahead %}
     <meta name="robots" content="noindex">
     <link rel="author" href="humans.txt">
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ base_url }}/assets/javascripts/application.js"></script>
+
+    <!-- Load additional languages for search -->
+    {% set languages = lang.t("search.languages").split(",") %}
+    {% if languages | length and languages[0] != "" %}
+        {% set path = base_url + "/assets/javascripts/lunr" %}
+        <script src="{{ path }}/lunr.stemmer.support.js"></script>
+        {% for language in languages | map("trim") %}
+            {% if language != "en" %}
+                {% if language == "jp" %}
+                    <script src="{{ path }}/tinyseg.js"></script>
+                {% endif %}
+                <script src="{{ path }}/lunr.{{ language }}.js"></script>
+            {% endif %}
+        {% endfor %}
+        {% if languages | length > 1 %}
+            <script src="{{ path }}/lunr.multi.js"></script>
+        {% endif %}
+    {% endif %}
+
+    <!-- Initialize application -->
+    <script>
+        app.initialize({ url: { base: "{{ base_url }}" } });
+    </script>
+    <!-- Remove extra_javascript to resolve subresource integrity -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"
+            integrity="sha384-Ra6zh6uYMmH5ydwCqqMoykyf1T/+ZcnOQfFPhDrp2kI4OIxadnhsvvA2vv9A7xYv"
+            crossorigin="anonymous"></script>
 {% endblock %}
