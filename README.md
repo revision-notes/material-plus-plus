@@ -14,10 +14,9 @@ Material++ is my extension to mkdocs-material, for the use of Revision Notes.
   - Give the page a proper title
 - Fonts
   - Set text font to Noto Sans
-  - Set pre font to Noto Mono
   - Set code font to Hack
 - Security
-  - Follow [Subresource Integrity security guidelines]
+  - Follow [Subresource Integrity security guidelines] (where possible)
 
 ## Notes
 

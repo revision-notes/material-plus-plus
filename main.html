@@ -11,15 +11,10 @@
 {% endblock %}
 
 {% block fonts %}
-    <!-- General Fonts - Noto based -->
+    <!-- General Font - Noto -->
+    <!-- Unfortunately Google Fonts doesn't support SRI -->
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Noto+Sans"
-          integrity="sha384-cnfcBG0kjmduxHJ8EfpPIr/HEHf2UvqGCGAVhZPhSBcUUj3CJn0VKjrtksWqYZSS"
-          crossorigin="anonymous">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Noto+Mono"
-          integrity="sha384-cnfcBG0kjmduxHJ8EfpPIr/HEHf2UvqGCGAVhZPhSBcUUj3CJn0VKjrtksWqYZSS"
-          crossorigin="anonymous">
+          href="https://fonts.googleapis.com/css?family=Noto+Sans:300,400,400i,700">
 
     <!-- Hack font for source code examples -->
     <link rel="stylesheet"
@@ -27,56 +22,38 @@
           integrity="sha384-H5e0RJpnyDO9imPVrfUJSBYtDF+3/DTHekmucchq8nG7NV7KcGFj0dGlkxgkKX78"
           crossorigin="anonymous">
 
-    <!-- Material icons as a default iconset -->
+    <!-- Material icons as the default iconset -->
+    <!-- Unfortunately Google Fonts doesn't support SRI -->
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          integrity="sha384-CRhgCa0uM5waDFIClxUG/YDMZSUj1VYriGWfzAN5uZGIAKMdDFLt3wWT4PAYFJ3J"
-          crossorigin="anonymous">
+          href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- Configure page fonts -->
     <style>
         body, input {
-            font-family: 'Noto Sans', sans-serif;
+            font-family: 'Noto Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
         pre, code, kbd {
-            font-family: 'Noto Mono', sans-serif;
+            font-family: "Courier New", Courier, monospace;
         }
         .codehilite * {
-            font-family: 'Hack', monospace;
+            font-family: 'Hack', "Courier New", Courier, monospace;
         }
     </style>
 {% endblock %}
 
 {% block extrahead %}
-    <meta name="robots" content="noindex">
     <link rel="author" href="humans.txt">
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{ base_url }}/assets/javascripts/application.js"></script>
+    <!-- This needs to be kept up-to-date with mkdocs-material -->
+    <script src="{{ base_url }}/assets/javascripts/application-c35428f87f.js"></script>
 
-    <!-- Load additional languages for search -->
-    {% set languages = lang.t("search.languages").split(",") %}
-    {% if languages | length and languages[0] != "" %}
-        {% set path = base_url + "/assets/javascripts/lunr" %}
-        <script src="{{ path }}/lunr.stemmer.support.js"></script>
-        {% for language in languages | map("trim") %}
-            {% if language != "en" %}
-                {% if language == "jp" %}
-                    <script src="{{ path }}/tinyseg.js"></script>
-                {% endif %}
-                <script src="{{ path }}/lunr.{{ language }}.js"></script>
-            {% endif %}
-        {% endfor %}
-        {% if languages | length > 1 %}
-            <script src="{{ path }}/lunr.multi.js"></script>
-        {% endif %}
-    {% endif %}
-
-    <!-- Initialize application -->
+    <!-- Initialise application -->
     <script>
         app.initialize({ url: { base: "{{ base_url }}" } });
     </script>
+
     <!-- Remove extra_javascript to resolve subresource integrity -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"
             integrity="sha384-Ra6zh6uYMmH5ydwCqqMoykyf1T/+ZcnOQfFPhDrp2kI4OIxadnhsvvA2vv9A7xYv"
