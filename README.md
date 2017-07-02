@@ -12,9 +12,11 @@ Material++ is my extension to mkdocs-material, for the use of Revision Notes.
 - 404 Page
   - Improved the content, to include a contact email
   - Give the page a proper title
-- Fonts
-  - Set text font to Noto Sans
-  - Set code font to Hack
+- Style
+  - Include Normalize to ensure the site looks consistent between browsers
+  - Fonts
+    - Set text font to Noto Sans
+    - Set code font to Hack
 - Security
   - Follow [Subresource Integrity security guidelines] (where possible)
 
