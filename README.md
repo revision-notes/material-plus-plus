@@ -19,9 +19,11 @@ Material++ is my extension to mkdocs-material, for the use of Revision Notes.
     - Set code font to Hack
 - Security
   - Follow [Subresource Integrity security guidelines] (where possible)
+- [Open Graph] Information
 
 ## Notes
 
 - **`font.code` will only work with CodeHilite**
 
 [Subresource Integrity security guidelines]: https://wiki.mozilla.org/Security/Guidelines/Web_Security#Subresource_Integrity
+[Open Graph]: http://ogp.me/
