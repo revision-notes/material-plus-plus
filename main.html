@@ -42,8 +42,12 @@
 {% endblock %}
 
 {% block extrahead %}
-    <!-- As it is humans.txt convention, add a link here -->
-    <link rel="author" href="humans.txt">
+    <!-- Link to all the stuffs -->
+    <link rel="author" href="/humans.txt">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Address Bar Theme Colour (Material Blue 500) -->
+    <meta name="theme-color" content="#2196F3">
 
     <!-- Open Graph Information -->
     <meta property="og:site_name" content="{{ config.site_name }}">
@@ -56,7 +60,9 @@
     {% endif %}
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ page.canonical_url }}">
-    <meta property="og:image" content="https://avatars0.githubusercontent.com/u/5103549?v=4&s=460">
+    <meta property="og:image" content="https://avatars0.githubusercontent.com/u/5103549">
+    <meta property="og:image:width" content="460">
+    <meta property="og:image:height" content="460">
     <meta property="og:locale" content="en_GB">
     {% if page and page.meta.description %}
         <meta property="og:description" content="{{ page.meta.description | first }}">
@@ -64,16 +70,29 @@
         <meta property="og:description" content="{{ config.site_description }}">
     {% endif %}
 
+    <!-- Twitter Card Information -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@jamiethecoder">
+    <meta name="twitter:title" content="Small Island Developing States Photo Submission">
+    {% if page and page.meta.title %}
+        <meta name="twitter:title" content="{{ page.meta.title | first }}">
+    {% elif page and page.title and not page.is_homepage %}
+        <meta name="twitter:title" content="{{ page.title }}">
+    {% else %}
+        <meta name="twitter:title" content="{{ config.site_name }}">
+    {% endif %}
+    {% if page and page.meta.description %}
+        <meta name="twitter:description" content="{{ page.meta.description | first }}">
+    {% elif config.site_description %}
+        <meta name="twitter:description" content="{{ config.site_description }}">
+    {% endif %}
+    <meta name="twitter:image" content="https://avatars0.githubusercontent.com/u/5103549">
+
     <!-- Ensure we look the same on EVERY browser -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"
           integrity="sha384-7tIwW4quYS2+TZCwuAPnUY+dRqg28ylzlIoVXAwpfiTs+CMKsAOSsWYQ96c/ZnV+"
           crossorigin="anonymous">
-
-    <!-- <3 Net Neutrality -->
-    <script src="https://widget.battleforthenet.com/widget.js" async
-            integrity="sha384-XdCIA1G2p9srkqb1fQ17fzzqiNtbjqH6eVT45gUjii4475HB2pMu6KwZLVSJua7i"
-            crossorigin="anonymous"></script>
 {% endblock %}
 
 {% block scripts %}

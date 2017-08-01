@@ -9,6 +9,8 @@ Material++ is an extension of [mkdocs-material], for the use of Revision Notes.
   - Use `|` to separate titles, not `-`
   - Add [Open Graph] Information
   - Add reference to humans.txt
+  - Add reference to Web App Manifest
+  - Set Address Bar Theme Colour
 - Libraries
   - Include [MathJax]
 - 404 Page
