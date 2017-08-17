@@ -11,32 +11,39 @@
 {% endblock %}
 
 {% block fonts %}
-    <!-- General Font - Noto -->
+    <!-- General Font - Noto Sans -->
     <!-- Unfortunately Google Fonts doesn't support SRI -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Noto+Sans:300,400,400i,700">
 
-    <!-- Hack font for source code examples -->
+    <!-- Source Code Font - Source Code Pro -->
+    <!-- Unfortunately Google Fonts doesn't support SRI -->
     <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css"
-          integrity="sha384-H5e0RJpnyDO9imPVrfUJSBYtDF+3/DTHekmucchq8nG7NV7KcGFj0dGlkxgkKX78"
-          crossorigin="anonymous">
+          href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
 
-    <!-- Material icons as the default iconset -->
+    <!-- Iconset - Material Icons -->
     <!-- Unfortunately Google Fonts doesn't support SRI -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+    <!-- Iconset - Font Awesome -->
+    {% if config.extra.social %}
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+              integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+              crossorigin="anonymous">
+    {% endif %}
+
     <!-- Configure page fonts -->
     <style>
         body, input {
-            font-family: 'Noto Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: 'Noto Sans', sans-serif;
         }
         pre, code, kbd {
-            font-family: "Courier New", Courier, monospace;
+            font-family: 'Courier New', Courier, monospace;
         }
         .codehilite * {
-            font-family: 'Hack', "Courier New", Courier, monospace;
+            font-family: 'Source Code Pro', monospace;
         }
     </style>
 {% endblock %}

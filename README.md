@@ -5,6 +5,8 @@ Material++ is an extension of [mkdocs-material], for the use of Revision Notes.
 
 ## Changes
 
+- Accessibility
+  - Set `aria-hidden` on some elements
 - Metadata
   - Use `|` to separate titles, not `-`
   - Add [Open Graph] Information
@@ -21,7 +23,7 @@ Material++ is an extension of [mkdocs-material], for the use of Revision Notes.
   - Use [Normalize.css] to ensure the site looks consistent between browsers
   - Fonts
     - Set text font to Noto Sans
-    - Set code font to Hack
+    - Set code font to Source Code Pro
 - Security
   - Follow [Subresource Integrity security guidelines] (where possible)
 
