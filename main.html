@@ -2,7 +2,7 @@
 
 {% block htmltitle %}
     {% if page and page.meta.title %}
-        <title>{{ page.meta.title | first }} | {{ config.site_name }}</title>
+        <title>{{ page.meta.title }} | {{ config.site_name }}</title>
     {% elif page and page.title and not page.is_homepage %}
         <title>{{ page.title }} | {{ config.site_name }}</title>
     {% else %}
@@ -59,7 +59,7 @@
     <!-- Open Graph Information -->
     <meta property="og:site_name" content="{{ config.site_name }}">
     {% if page and page.meta.title %}
-        <meta property="og:title" content="{{ page.meta.title | first }}">
+        <meta property="og:title" content="{{ page.meta.title }}">
     {% elif page and page.title and not page.is_homepage %}
         <meta property="og:title" content="{{ page.title }}">
     {% else %}
@@ -72,7 +72,7 @@
     <meta property="og:image:height" content="460">
     <meta property="og:locale" content="en_GB">
     {% if page and page.meta.description %}
-        <meta property="og:description" content="{{ page.meta.description | first }}">
+        <meta property="og:description" content="{{ page.meta.description }}">
     {% elif config.site_description %}
         <meta property="og:description" content="{{ config.site_description }}">
     {% endif %}
@@ -81,14 +81,14 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@jamiethecoder">
     {% if page and page.meta.title %}
-        <meta name="twitter:title" content="{{ page.meta.title | first }}">
+        <meta name="twitter:title" content="{{ page.meta.title }}">
     {% elif page and page.title and not page.is_homepage %}
         <meta name="twitter:title" content="{{ page.title }}">
     {% else %}
         <meta name="twitter:title" content="{{ config.site_name }}">
     {% endif %}
     {% if page and page.meta.description %}
-        <meta name="twitter:description" content="{{ page.meta.description | first }}">
+        <meta name="twitter:description" content="{{ page.meta.description }}">
     {% elif config.site_description %}
         <meta name="twitter:description" content="{{ config.site_description }}">
     {% endif %}
@@ -103,7 +103,7 @@
 
 {% block scripts %}
     <!-- This needs to be kept up-to-date with mkdocs-material -->
-    <script src="{{ base_url }}/assets/javascripts/application-946997f430.js"></script>
+    <script src="{{ base_url }}/assets/javascripts/application-84693e5e49.js"></script>
 
     <!-- Initialise application -->
     <script>
