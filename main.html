@@ -107,7 +107,10 @@
 
     <!-- Initialise application -->
     <script>
-        app.initialize({ url: { base: "{{ base_url }}" } });
+        app.initialize({
+            version: "{{ mkdocs_version }}",
+            url: { base: "{{ base_url }}" }
+        });
     </script>
 
     <!-- Remove extra_javascript to resolve subresource integrity -->
