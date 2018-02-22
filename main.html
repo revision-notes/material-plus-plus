@@ -101,6 +101,17 @@
           crossorigin="anonymous">
 {% endblock %}
 
+{# We don't have public-viewable source, so this is never used #}
+{# Perfect placement it has in main.html :p #}
+{% block source %}
+    <hr>
+    <em>
+        Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative
+        Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public
+        License 2.0</a>
+    </em>.
+{% endblock %}
+
 {% block scripts %}
     {# This needs to be kept up-to-date with mkdocs-material #}
     <script src="{{ base_url }}/assets/javascripts/application.02434462.js"></script>
