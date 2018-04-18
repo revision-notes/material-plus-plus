@@ -94,6 +94,36 @@
     {% endif %}
     <meta name="twitter:image" content="https://avatars0.githubusercontent.com/u/5103549">
 
+    {# JSON-LS Information #}
+    {% if page %}
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {% for doc in page.ancestors %}
+                        {
+                            "@type": "ListItem",
+                            "position": {{ loop.index }},
+                            "item": {
+                                "@id": "{{ config.site_url[:-1] }}{{ (doc.children | first).abs_url }}",
+                                "name": "{{ doc.title }}"
+                            }
+                        },
+                    {% endfor %}
+                    {
+                        "@type": "ListItem",
+                        "position": {{ page.ancestors|length + 1 }},
+                        "item": {
+                            "@id": "{{ page.canonical_url }}",
+                            "name": "{{ page.title }}"
+                        }
+                    }
+                ]
+            }
+        </script>
+    {% endif %}
+
     {# Ensure we look the same on EVERY browser #}
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"
